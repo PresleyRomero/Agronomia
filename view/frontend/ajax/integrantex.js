@@ -12,7 +12,7 @@ $.ajax({
         else{
             lstintegrantes=JSON.parse(resultado);            
             //cargarIntegrantes(lstintegrantes);
-            console.log(lstintegrantes);
+            console.log(lstintegrantes);            
             $('#tblintegrante').DataTable({                
                 data: lstintegrantes,
                 columns: [                    
@@ -20,7 +20,8 @@ $.ajax({
                     { data: 'nombres' },
                     { data: 'apellidopat' },                    
                     { data: 'usuario' },
-                    { data: 'contrasenia' },
+                    {'<a class=btn modal-trigger>NUEVO</a>'},
+                    // { data: 'contrasenia' },
                     { data: 'tipo' }
                 ]
             });

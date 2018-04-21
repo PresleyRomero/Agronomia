@@ -46,15 +46,9 @@
 
                     <a class="btn modal-trigger" href="#modal1">NUEVO</a>
                     <button class="btn modal-trigger" data-target="modal-nuevointegrante" >NUEVO</button>
-                <!-- </div>                 
+                <!-- </div>                  -->
             </div>
         </div>
-
-
-
-
-
-
 
         
 
@@ -132,8 +126,6 @@
         </div>
     </div>
         
-        <h4>NUEVO CLIENTE</h4>
-
         <!--div>
         
             <form id="form-integrante">   
@@ -205,10 +197,8 @@
         <script src="frontend/ajax/integrantex.js"></script>        
         <script> 
             $(document).ready(function(){
-
                 $('select').formSelect();      
                 $('.modal').modal();    
-
             });
         </script>
          <!-- <script>
