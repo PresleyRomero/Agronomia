@@ -11,10 +11,7 @@ if (isset($_POST['op'])) {
 	    switch ($op) {
 	    	case 'listarintegrantes':
 	    		$lstintegrantes=$mintegrante->listar(); 
-		        if(count($lstintegrantes)>0){
-		        	// $data["data"]=$lstintegrantes;
-		        	// echo json_encode($data);  
-		        	//return $data;
+		        if(count($lstintegrantes)>0){		        	
 		        	echo json_encode($lstintegrantes);  
 		        }else{
 		            echo "vacio";

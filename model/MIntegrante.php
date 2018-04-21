@@ -35,7 +35,7 @@
 		public function listar(){
 			//$lstintegrantes=null;
 			try{
-				$rs=$this->conn->query("select * from integrante");
+				$rs=$this->conn->query("select idintegrante,dni,nombres,concat(apellidopat,' ',apellidomat) apellidos,usuario,if(tipo=1,'Admin','Invitado') tipo FROM integrante");
 				$lstintegrantes=$rs->fetchAll(PDO::FETCH_ASSOC);
 				return $lstintegrantes;				
 			}catch(Exception $e){

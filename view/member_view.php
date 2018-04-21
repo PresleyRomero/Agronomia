@@ -28,8 +28,7 @@
             </div>
             <div class="col s12 m8 l9">
                 <!-- <div class="container"> -->
-                    <h2>LISTA DE INTEGRANTES</h2>
-
+                    <h4>LISTA DE INTEGRANTES</h4>
                     <table id="tblintegrante" width="100%" class="display">
                         <thead>
                             <tr>
@@ -54,143 +53,69 @@
 
         <!--Modal nuevo integrante-->                  
         <div class="modal" id="modal-nuevointegrante">
-            <div class="modal-content">
-            <!-- <div class="row">
-                <div class="col s12"> -->
-                    <h4>NUEVO INTEGRANTE</h4>
-                    <form id="form-integrante" action="#" >
-                        <div class="row">
-                            <div class="input-field col s12">                                
-                                <input type="text" id="txtdni" value="">                            
-                                <label for="txtdni">DNI(*)</label>
-                            </div>                        
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" id="txtnombres" value="">
-                                <label for="txtnombres">NOMBRES(*)</label>
-                            </div>                        
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" id="txtapellidopat" value="">                          
-                                <label for="txtapellidopat">PRIMER APELLIDO(*)</label>
-                            </div>                        
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" id="txtapellidomat" value="">                            
-                                <label for="txtapellidomat">SEGUNDO APELLIDO(*)</label>
-                            </div>                        
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" id="txtusuario" value="">                            
-                                <label for="txtusuario">USUARIO</label>
-                            </div>                        
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" id="txtcontrasenia" value="">                            
-                                <label for="txtcontrasenia">CONTRASEÑA</label>
-                            </div>                        
-                        </div>
-                       <div class="row">
-                            <div class="input-field col s12">
-                                <select id="cbtipo">
-                                    <option value="" disabled selected>Elige tipo</option>
-                                    <option value="1">ADMIN</option>
-                                    <option value="2">INVITADO</option>                            
-                                </select>   
-                            </div>
-                        </div>
-                                    
-                        <div class="row">
-                            <div class="col s4 ">
-                                <button type="button" id="btnregistrar">REGISTRAR</button>
-                                    <!--i class="fa fa-floppy-o" aria-hidden="true"></i> REGISTRAR-->
-                                
-                                <!-- <a href="" class="btn">REGISTRAR</a> -->
-                            </div>                        
-                            <div class="col s4 ">
-                                <button type="button" id="btncancelar">CANCELAR
-                                    <!--i class="fa fa-times" aria-hidden="true"></i> CANCELAR>-->
-                                </button>
-                                <!-- <a href="" class="btn red">CANCELAR</a> -->
-                            </div>
+            <div class="modal-content">            
+                <h4>NUEVO INTEGRANTE</h4>
+                <form id="form-integrante" action="#" >
+                    <div class="row">
+                        <div class="input-field col s12">                                
+                            <input type="text" id="txtdni" value="">                            
+                            <label for="txtdni">DNI(*)</label>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <input type="text" id="txtnombres" value="">
+                            <label for="txtnombres">NOMBRES(*)</label>
                         </div>   
-                    </form>
-                <!--/div>
-             <    </div>
-            </div> -->
+                        <div class="input-field col s4">
+                            <input type="text" id="txtapellidopat" value="">                          
+                            <label for="txtapellidopat">PRIMER APELLIDO(*)</label>
+                        </div> 
+                        <div class="input-field col s4">
+                            <input type="text" id="txtapellidomat" value="">                            
+                            <label for="txtapellidomat">SEGUNDO APELLIDO(*)</label>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" id="txtusuario" value="">                            
+                            <label for="txtusuario">USUARIO</label>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" id="txtcontrasenia" value="">                            
+                            <label for="txtcontrasenia">CONTRASEÑA</label>
+                        </div>                        
+                    </div>
+                   <div class="row">
+                        <div class="input-field col s12">
+                            <select id="cbtipo">
+                                <option value="" disabled selected>Elige tipo</option>
+                                <option value="1">ADMIN</option>
+                                <option value="2">INVITADO</option>                            
+                            </select>   
+                        </div>
+                    </div>
+                                
+                    <div class="row">
+                        <div class="col s4 ">
+                            <button type="button" id="btnregistrar">REGISTRAR</button>
+                                <!--i class="fa fa-floppy-o" aria-hidden="true"></i> REGISTRAR-->
+                            
+                            <!-- <a href="" class="btn">REGISTRAR</a> -->
+                        </div>                        
+                        <div class="col s4 ">
+                            <button type="button" id="btncancelar">CANCELAR
+                                <!--i class="fa fa-times" aria-hidden="true"></i> CANCELAR>-->
+                            </button>
+                            <!-- <a href="" class="btn red">CANCELAR</a> -->
+                        </div>
+                    </div>   
+                </form>                
+            </div>
         </div>
-    </div>
         
-        <!--div>
-        
-            <form id="form-integrante">   
-
-                <div>
-                    <label>DNI (*):</label>
-                    <div>
-                        <input type="text" id="txtdni" value="">    
-                    </div>
-                </div>
-                <div>
-                    <label>NOMBRES(*):</label>
-                    <div>
-                        <input type="text" id="txtnombres" value="">
-                    </div>
-                </div>
-                <div>
-                    <label>PRIMER APELLIDO(*):</label>
-                    <div>
-                        <input type="text" id="txtapellidopat" value="">
-                    </div>
-                </div>
-                <div>
-                    <label>SEGUNDO APELLIDO(*):</label>
-                    <div>
-                        <input type="text" id="txtapellidomat" value="">
-                    </div>
-                </div>
-                <div>
-                    <label>USUARIO(*):</label>
-                    <div>
-                        <input type="text" id="txtusuario" value="">
-                    </div>
-                </div>
-                <div>
-                    <label>contraseña(*):</label>
-                    <div>
-                        <input type="text" id="txtcontrasenia" value="">
-                    </div>
-                </div>
-                <div>
-                    <label>TIPO DE USUARIO(*):</label>
-                    <div>
-                        <select id="cbtipo">
-                            <option value="1">ADMIN</option>
-                            <option value="2">INVITADO</option>    
-                        </select>    
-                    </div>
-                </div>              
-                <div>
-                    <div> 
-                        <button type="button" id="btnregistrar">REGISTRA</button>
-                            <!--i class="fa fa-floppy-o" aria-hidden="true"></i> REGISTRAR
-                        </button>
-                    </div>
-                    <div>
-                        <button type="button" id="btncancelar">CANCELAR
-                            <!--i class="fa fa-times" aria-hidden="true"></i> CANCELAR>
-                        </button>
-                    </div>
-                </div> 
-            </form>
-
-        </div-->
-
         <script  src="frontend/js/jquery.min.js"></script>
         <script  src="frontend/js/jquery.dataTables.min.js"></script>
         <script  src="frontend/js/materialize.min.js"></script>        
@@ -201,15 +126,6 @@
                 $('.modal').modal();    
             });
         </script>
-         <!-- <script>
-             
-            $(document).ready(function() {
-                $('#tblintegrante').DataTable( {
-                    "ajax": 'frontend/ajax/data.txt'
-                } );
-            });
-         </script>
-        
- -->
+
     </body>
 </html>

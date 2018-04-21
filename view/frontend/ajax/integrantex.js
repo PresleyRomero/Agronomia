@@ -18,24 +18,24 @@ $.ajax({
                 columns: [                    
                     { data: 'dni' },
                     { data: 'nombres' },
-                    { data: 'apellidopat' },                    
+                    { data: 'apellidos' },                    
                     { data: 'usuario' },
-                    {'<a class=btn modal-trigger>NUEVO</a>'},
-                    // { data: 'contrasenia' },
-                    { data: 'tipo' }
+                    { data: 'tipo' },
+                    { render: function () {
+                        return '<a class="btn" href="#">Editar</a>';
+                      } 
+                    }                    
                 ]
             });
         }
     }
 });
 
-//});
 
 
 
-function cargarIntegrantes(listaint) {        
-    //var tblintegrantes=$('#tblintegrante').dataTable();
-    //tblintegrantes.destroy();
+
+function cargarIntegrantes(listaint) {   
     // $('#tblintegrante').dataTable().destroy();
     $('#tblintegrante').DataTable().destroy();
     $('#tbody-integrantes').html('');
@@ -49,10 +49,8 @@ function cargarIntegrantes(listaint) {
                 <td> ${listaint[i]["tipo"]}</td>
                 <td class=center><button data-toggle="modal" data-target="#modificar" class="btn btn-primar" id="btneditar-${listaint[i]["idintegrante"]}" title="Editar" onclick="cargarIntegrante(this.id)"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;</button></td>
             </tr> `);
-    }
-    // $('#tblintegrante').addClass("display").DataTable();    
-    $('#tblintegrante').DataTable();//{responsive:true});
-    // $('#tblintegrante').DataTable();//{responsive:true});
+    } 
+    $('#tblintegrante').DataTable();//{responsive:true});    
 }
 
 
