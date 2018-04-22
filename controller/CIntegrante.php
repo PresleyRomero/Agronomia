@@ -23,7 +23,22 @@ if (isset($_POST['op'])) {
 		   		$mintegrante->insertar($datos["dni"],$datos["nombres"],$datos["apellidopat"],$datos["apellidomat"],$datos["usuario"],$datos["contrasenia"],$datos["tipo"]);
 		    	echo "true";		    	
 	    		break;
-	    	
+
+			case 'editar':	    		
+		    	$datos=$_POST["datos"];	     	    	
+		   		$mintegrante->modificar($datos["id"],$datos["dni"],$datos["nombres"],$datos["apellidopat"],$datos["apellidomat"],$datos["tipo"]);
+		    	echo "true";		    	
+	    		break;
+
+	    	case 'cargardatos':	    		
+		   		$integrante=$mintegrante->obtenerIntegrante($_POST["idintegrante"]);
+		    	if(count($integrante)>0){		        	
+		        	echo json_encode($integrante);  
+		        }else{
+		            echo "vacio";
+		        }
+	    		break;
+
 	    	default:	
 	    		echo "maldita primaveraaaaaaa";
 	    		break;

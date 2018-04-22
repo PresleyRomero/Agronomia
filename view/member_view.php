@@ -40,7 +40,7 @@
                                 <th class="center">ACCIONES</th>
                             </tr>
                         </thead>
-                        <!-- <tbody id="tbody-integrantes">LLENADO EN AJAX> </tbody> -->
+                        <tbody id="tbody-integrantes"><!--LLENADO EN AJAX--> </tbody> 
                     </table>
 
                     <a class="btn modal-trigger" href="#modal1">NUEVO</a>
@@ -51,7 +51,7 @@
 
         
 
-        <!--Modal nuevo integrante-->                  
+        <!--Modal Nuevo integrante-->                  
         <div class="modal" id="modal-nuevointegrante">
             <div class="modal-content">            
                 <h4>NUEVO INTEGRANTE</h4>
@@ -116,6 +116,60 @@
             </div>
         </div>
         
+        <!--Modal Editar integrante-->                  
+        <div class="modal" id="modal-editarintegrante">
+            <div class="modal-content">            
+                <h4>EDITAR INTEGRANTE</h4>
+                <form id="form-integrante2" action="#" >
+                    <input type="text" id="txtidintegrante2" hidden="">   
+                    <div class="row">
+                        <div class="input-field col s12">                                
+                            <input type="text" id="txtdni2" value="">                            
+                            <label for="txtdni2">DNI(*)</label>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <input type="text" id="txtnombres2" value="">
+                            <label for="txtnombres2">NOMBRES(*)</label>
+                        </div>   
+                        <div class="input-field col s4">
+                            <input type="text" id="txtapellidopat2" value="">                          
+                            <label for="txtapellidopat2">PRIMER APELLIDO(*)</label>
+                        </div> 
+                        <div class="input-field col s4">
+                            <input type="text" id="txtapellidomat2" value="">                            
+                            <label for="txtapellidomat2">SEGUNDO APELLIDO(*)</label>
+                        </div>                        
+                    </div>                    
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <select id="cbtipo2">
+                                <option value="" disabled selected>Elige tipo</option>
+                                <option value="1">ADMIN</option>
+                                <option value="2">INVITADO</option>                            
+                            </select>   
+                        </div>
+                    </div>
+                                
+                    <div class="row">
+                        <div class="col s4 ">
+                            <button type="button" id="btnguardarcambios">GUARDAR CAMBIOS</button>
+                                <!--i class="fa fa-floppy-o" aria-hidden="true"></i> REGISTRAR-->
+                            
+                            <!-- <a href="" class="btn">REGISTRAR</a> -->
+                        </div>                        
+                        <div class="col s4 ">
+                            <button type="button" id="btncancelar2">CANCELAR
+                                <!--i class="fa fa-times" aria-hidden="true"></i> CANCELAR>-->
+                            </button>
+                            <!-- <a href="" class="btn red">CANCELAR</a> -->
+                        </div>
+                    </div>   
+                </form>                
+            </div>
+        </div>
+
         <script  src="frontend/js/jquery.min.js"></script>
         <script  src="frontend/js/jquery.dataTables.min.js"></script>
         <script  src="frontend/js/materialize.min.js"></script>        

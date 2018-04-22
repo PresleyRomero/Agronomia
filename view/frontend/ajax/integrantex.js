@@ -1,42 +1,61 @@
 // $(document).ready(function() {$('#tblintegrante').dataTable({ responsive:true ,ordering:false }); //});
 //$(document).ready(function() {$('#tblintegrante').DataTable({ responsive:true ,ordering:false }); //});
 
+cargarTabla();
 
-$.ajax({      
-    type: 'POST',
-    url: '../controller/CIntegrante.php',
-    data: {op:"listarintegrantes"},
-    success: function(resultado){         
-        console.log(resultado);
-        if(resultado=="vacio"){ }
-        else{
-            lstintegrantes=JSON.parse(resultado);            
-            //cargarIntegrantes(lstintegrantes);
-            console.log(lstintegrantes);            
-            $('#tblintegrante').DataTable({                
-                data: lstintegrantes,
-                columns: [                    
-                    { data: 'dni' },
-                    { data: 'nombres' },
-                    { data: 'apellidos' },                    
-                    { data: 'usuario' },
-                    { data: 'tipo' },
-                    { render: function () {
-                        return '<a class="btn" href="#">Editar</a>';
-                      } 
-                    }                    
-                ]
-            });
+function cargarTabla() {   
+
+    $.ajax({      
+        type: 'POST',
+        url: '../controller/CIntegrante.php',
+        data: {op:"listarintegrantes"},
+        success: function(resultado){         
+            // console.log(resultado);
+            if(resultado=="vacio"){ }
+            else{
+                var lstintegrantes=JSON.parse(resultado);            
+                $('#tblintegrante').DataTable().destroy(); //obtiene una instancia del datatable y la destruye 
+                $('#tbody-integrantes').html('');
+                for (var i = 0; i < lstintegrantes.length; i++) {                    
+                    $('#tbody-integrantes').append(
+                        `<tr>                
+                            <td> ${lstintegrantes[i]["dni"]}</td>
+                            <td> ${lstintegrantes[i]["nombres"]}</td>
+                            <td> ${lstintegrantes[i]["apellidos"]}</td>
+                            <td> ${lstintegrantes[i]["usuario"]}</td>
+                            <td> ${lstintegrantes[i]["tipo"]}</td>
+                            <td class=center><button class="btn modal-trigger" data-target="modal-editarintegrante" id="btneditar-${lstintegrantes[i]["idintegrante"]}" title="Editar" onclick="cargarDatos(this.id)"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;</button></td>
+                        </tr> `);
+                } 
+                $('#tblintegrante').DataTable();//{responsive:true});                 
+            }
         }
-    }
-});
+    });
+}
 
 
+////OTRO FORMA DE LLENAR UNA TABLA CON DATATABLE
+
+                /*$('#tblintegrante').DataTable().destroy();//obtiene una instancia del datatable y la destruye       
+                $('#tblintegrante').DataTable({  
+                    data: lstintegrantes,
+                    columns: [                    
+                        { data: 'dni' },
+                        { data: 'nombres' },
+                        { data: 'apellidos' },                    
+                        { data: 'usuario' },
+                        { data: 'tipo' },
+                        { render: function () {                            
+                            return '<a class="btn" href="#">Editar</a>';
+                          } 
+                        }                    
+                    ]
+                    
+                });*/
 
 
-
+/*
 function cargarIntegrantes(listaint) {   
-    // $('#tblintegrante').dataTable().destroy();
     $('#tblintegrante').DataTable().destroy();
     $('#tbody-integrantes').html('');
     for (var i = 0; i < listaint.length; i++) {                    
@@ -44,7 +63,7 @@ function cargarIntegrantes(listaint) {
             `<tr>                
                 <td> ${listaint[i]["dni"]}</td>
                 <td> ${listaint[i]["nombres"]}</td>
-                <td> ${listaint[i]["apellidopat"]}  ${listaint[i]["apellidomat"]}</td>
+                <td> ${listaint[i]["apellidos"]}</td>
                 <td> ${listaint[i]["usuario"]}</td>
                 <td> ${listaint[i]["tipo"]}</td>
                 <td class=center><button data-toggle="modal" data-target="#modificar" class="btn btn-primar" id="btneditar-${listaint[i]["idintegrante"]}" title="Editar" onclick="cargarIntegrante(this.id)"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;</button></td>
@@ -82,6 +101,7 @@ $('#btnregistrar').click(function(){
             console.log(resultado);   
             if (resultado=="true") {
                 $('#form-integrante input').val("");
+                 cargarTabla();                
             }else{
                 alert("No se pudo registrar: "+resultado);
             }
@@ -106,73 +126,86 @@ function limpiar(){
     $('#formintegrante input').val('');
     $('#txtidintegrante').val(txtidintegrante);
 }
+*/
 
-/*
 ////MODIFICAR
-function cargarIntegrante(idbtn){
+function cargarDatos(idbtn){
     var idintegrante=idbtn.split('-')[1];
     $.ajax({   
         type: 'POST',
-        url: '../CIntegrante',
-        data: {op:"cargarintegrante",idintegrante:idintegrante},
+        url: '../controller/CIntegrante.php',
+        data: {"op":"cargardatos","idintegrante":idintegrante},
         success: function(resultado){  
-            if(resultado=='nulo'){ }
-            else{                
-                var datosproducto=resultado.split('?');
-                $('#txtidintegrante2').val(datosproducto[0]);
-                $('#txtnombres2').val(datosproducto[1]);
-                if(datosproducto[2]!="null") $('#txtdniruc2').val(datosproducto[2]);
-                else $('#txtdniruc2').val(datosproducto[3]);                
-                $('#txttelefono12').val(datosproducto[4]);
-                $('#txttelefono22').val(datosproducto[5]);
-                $('#txtdireccion2').val(datosproducto[6]);                
+            if(resultado=="vacio"){ }
+            else{  
+                var datos=JSON.parse(resultado);                  
+                $('#txtnombres2').val("").focus().val(datos[0]["nombres"]);                                          
+                $('#txtapellidopat2').val("").focus().val(datos[0]["apellidopat"]);
+                $('#txtapellidomat2').val("").focus().val(datos[0]["apellidomat"]);
+                $('#txtdni2').val("").focus().val(datos[0]["dni"]);  
+                $('#txtidintegrante2').val("").val(datos[0]["idintegrante"]);
+                //YYYYYY EL COMBO DE TIPO  ???????????????????????????????????''
             }    
         }
     }); 
 }
-
+/*
 $( "#formintegrantes2" ).validate({ //Validación
     rules:{ txtnombres2: {obligatorio: true, noespeciales:true}, txtdniruc2:{obligatorio: true,dniruc:true},txttelefono12:{noespeciales:true}, txttelefono22:{noespeciales:true}, txtdireccion2:{noespeciales:true} },    
     submitHandler: function(form){ modificar(); }
 });
-
-function modificar(){
+*/
+$('#btnguardarcambios').click(function(){  
     var idintegrante=$('#txtidintegrante2').val();
-    var nombres=$('#txtnombres2').val().toUpperCase();
-    var dniruc=$.trim($('#txtdniruc2').val());
-    var telefono1=$('#txttelefono12').val();
-    var telefono2=$('#txttelefono22').val();
-    var direccion=$('#txtdireccion2').val().toUpperCase();  
-    $('#tbintegrante').DataTable().destroy();
-    $.ajax({     
+    var dni=$.trim($('#txtdni2').val());
+    var nombres=$('#txtnombres2').val().toUpperCase();    
+    var apellidopat=$('#txtapellidopat2').val().toUpperCase();
+    var apellidomat=$('#txtapellidomat2').val().toUpperCase();
+    var tipo=$('#cbtipo').val();
+    var datos={"id":idintegrante,"dni":dni,"nombres":nombres,"apellidopat":apellidopat,"apellidomat":apellidomat,"tipo":tipo};    
+    $.ajax({        
         type: 'POST',
-        url: '../CIntegrante',
-        data: {op:"modificar",txtidintegrante2:idintegrante,txtnombres2:nombres,txtdniruc2:dniruc,txttelefono12:telefono1,txttelefono22:telefono2,txtdireccion2:direccion},
-        success: function(resultado){                
-            if(resultado=='true'){
-                $('#modificar').modal('toggle');
-                swal({title:'Integrante Modificado',type:'success',showConfirmButton:false,timer:2000});
-                var tbody=document.getElementById("tabla");
-                var tr=tbody.getElementsByTagName("tr");
-                for (var i = 0; i < tbody.rows.length; i++) {
-                    var td=tr[i].getElementsByTagName("td");
-                    if (td[0].textContent==idintegrante) {
-                        td[1].textContent=nombres;
-                        td[2].textContent=dniruc;
-                        td[3].textContent=telefono1+"   "+telefono2;
-                        td[4].textContent=direccion;
-                        break;
-                    }
-                }
-                limpiar2();                
+        url: '../controller/CIntegrante.php',
+        data: {"op":"editar",datos},       
+        success: function(resultado) {     
+            console.log(resultado);   
+            if (resultado=="true") {
+                $('#form-integrante2 input').val("");
+                 cargarTabla();                
             }else{
-                swal({title:'Error: '+resultado,type:'error',showConfirmButton:false,timer:4000});
-            } 
-            $('#tbintegrante').DataTable({responsive:true,ordering:false});
+                alert("No se pudo registrar: "+resultado);
+            }
+            
         }
-    });
-}
+    })
 
+
+        // success: function(resultado){                
+        //     if(resultado=='true'){
+        //         $('#modificar').modal('toggle');
+        //         swal({title:'Integrante Modificado',type:'success',showConfirmButton:false,timer:2000});
+        //         var tbody=document.getElementById("tabla");
+        //         var tr=tbody.getElementsByTagName("tr");
+        //         for (var i = 0; i < tbody.rows.length; i++) {
+        //             var td=tr[i].getElementsByTagName("td");
+        //             if (td[0].textContent==idintegrante) {
+        //                 td[1].textContent=nombres;
+        //                 td[2].textContent=dniruc;
+        //                 td[3].textContent=telefono1+"   "+telefono2;
+        //                 td[4].textContent=direccion;
+        //                 break;
+        //             }
+        //         }
+        //         limpiar2();                
+        //     }else{
+        //         swal({title:'Error: '+resultado,type:'error',showConfirmButton:false,timer:4000});
+        //     } 
+        //     $('#tbintegrante').DataTable({responsive:true,ordering:false});
+        // }
+});
+
+
+/*
 $('#btncancelar2').click(function (){
     limpiar2();
     $('#modificar').modal('toggle');
