@@ -50,6 +50,28 @@
 			}
 		}
 
+		public function buscarUsuario(){
+			$usuario=null;
+			try {
+				$sql="select * from integrante where usuario= ? and contrasenia= ?";
+				$pstm=$this->conn->prepare($sql);
+				$user=htmlentities(addslashes($_POST["txtuser"]));
+				$pass=htmlentities(addslashes($_POST["txtpass"]));
+				$pstm->execute(array($user,$pass));
+				if ($fila=$pstm->fetch(PDO::FETCH_ASSOC)){ 
+					$usuario=array();
+					$usuario=$fila;
+				}
+				return $usuario;				
+			} catch(Exception $e){
+				throw $e;
+			}finally{
+				$pstm=null;
+				$this->conn=null;
+			}		
+		}
+
+
 		public function obtenerIntegrante($idintegrante){
 			try{
 				$sql="select idintegrante,dni,nombres,apellidopat,apellidomat,usuario,tipo FROM integrante where idintegrante=".$idintegrante;

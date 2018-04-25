@@ -4,17 +4,17 @@
 cargarTabla();
 
 function cargarTabla() {   
-
+    $('#tblintegrante').DataTable().destroy(); //obtiene una instancia del datatable y la destruye 
     $.ajax({      
         type: 'POST',
         url: '../controller/CIntegrante.php',
         data: {op:"listarintegrantes"},
+        beforeSend: function () { preloader();},//$('#tbody-integrantes').html('<tr><td colspan=6 class=center><h5> Cargando...</h5></td></tr>')},
         success: function(resultado){         
             // console.log(resultado);
             if(resultado=="vacio"){ }
             else{
                 var lstintegrantes=JSON.parse(resultado);            
-                $('#tblintegrante').DataTable().destroy(); //obtiene una instancia del datatable y la destruye 
                 $('#tbody-integrantes').html('');
                 for (var i = 0; i < lstintegrantes.length; i++) {                    
                     $('#tbody-integrantes').append(
@@ -33,6 +33,23 @@ function cargarTabla() {
     });
 }
 
+
+function preloader(){
+
+    $('#tbody-integrantes').html(`<tr><td colspan=6 class=center> <div class="preloader-wrapper small active">
+                                <div class="spinner-layer spinner-green-only">
+                                  <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                  </div><div class="gap-patch">
+                                    <div class="circle"></div>
+                                  </div><div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                  </div>
+                                </div>
+                            </div> <h5> Cargando...</h5></td></tr>`);
+
+    
+}
 
 ////OTRO FORMA DE LLENAR UNA TABLA CON DATATABLE
 
