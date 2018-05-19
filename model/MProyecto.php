@@ -14,12 +14,12 @@
 		}
 
 
-		public function insertar($codigo,$nomb,$ubigeo) {
+		public function insertar($codigo,$nomb,$idlugar) {
 			try{
-				$sql="insert into proyecto(codigo,nombre,ubigeo) values(?,?,?)";	
+				$sql="insert into proyecto(codigo,nombre,idlugar) values(?,?,?)";	
 				$this->conn->beginTransaction(); //crea una transacción
 				$pstm=$this->conn->prepare($sql);
-				$pstm->execute(array($codigo,$nomb,$ubigeo));
+				$pstm->execute(array($codigo,$nomb,$idlugar));
 				$this->conn->commit(); //confirma transacción y actualiza en BD.
 				return true;
 			}
@@ -32,12 +32,12 @@
 			}
 		}
 
-		public function modificar($id,$nomb,$ubigeo) {
+		public function modificar($id,$nomb,$idlugar) {
 			try{
-				$sql="update proyecto set nombre=?,ubigeo=? where idproyecto=?";			
+				$sql="update proyecto set nombre=?,idlugar=? where idproyecto=?";			
 				$this->conn->beginTransaction(); //crea una transacción
 				$pstm=$this->conn->prepare($sql);
-				$pstm->execute(array($nomb,$ubigeo,$id));
+				$pstm->execute(array($nomb,$idlugar,$id));
 				$this->conn->commit(); //confirma transacción y actualiza en BD.
 				return true;
 			}
@@ -52,7 +52,7 @@
 
 		public function obtenerProyecto($idproyecto){
 			try{
-				$sql="select idproyecto,codigo,nombre,ubigeo,fecharegitro FROM proyecto where idproyecto=".$idproyecto;
+				$sql="select idproyecto,codigo,nombre,idlugar,fecharegitro FROM proyecto where idproyecto=".$idproyecto;
 				$rs=$this->conn->query($sql);
 				$proyecto=$rs->fetchAll(PDO::FETCH_ASSOC);
 				return $proyecto;				
@@ -68,7 +68,7 @@
 		public function listar(){
 			//$lstproyectos=null;
 			try{
-				$sql="select idproyecto,codigo,nombre,ubigeo,fecharegitro FROM proyecto";
+				$sql="select idproyecto,codigo,nombre,idlugar,fecharegitro FROM proyecto";
 				$rs=$this->conn->query($sql);
 				$lstproyectos=$rs->fetchAll(PDO::FETCH_ASSOC);
 				return $lstproyectos;				

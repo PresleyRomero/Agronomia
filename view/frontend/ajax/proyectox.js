@@ -1,8 +1,76 @@
+cargarRegiones();
+
+function cargarRegiones() {        
+    $.ajax({        
+        type: 'POST',
+        url: '../controller/CAuxiliar.php',
+        data: {"op":"listarRegiones"},       
+        success: function(resultado) {     
+            console.log(resultado);   
+            if(resultado=="vacio"){ }
+            else{
+                var lst=JSON.parse(resultado);            
+                var $cb=$('#cbregion').html('');
+                $cb.append(`<option value="" disabled selected>REGIÓN</option>`);
+                for (var i = 0; i < lst.length; i++) {                    
+                    $cb.append(`<option value=${lst[i]["ubigeo"]}>${lst[i]["nombre"]}</option>`);
+                }
+                $('select').formSelect();                  
+            }       
+        }
+    });   
+}
+
+$('#cbregion').on('change', function(){
+    var prefijo=$('#cbregion').val().substr(0,2);
+    console.log(prefijo);
+    $.ajax({            
+        type: 'POST',
+        url: '../controller/CAuxiliar.php',
+        data: {"op":"listarProvincias","prefijo":prefijo},     
+        success: function(resultado){
+            $('#cbprovincia').html('').append('<option value="" disabled selected>PROVINCIA</option>'); 
+            $('#cbdistrito').html('').append('<option value="" disabled selected>DISTRITO</option>');
+            if(resultado=="vacio"){ }
+            else{
+                var lst=JSON.parse(resultado);     
+                for (var i = 0; i < lst.length; i++) {                    
+                    $('#cbprovincia').append(`<option value=${lst[i]["ubigeo"]}>${lst[i]["nombre"]}</option>`);
+                }                 
+            }
+            $('select').formSelect(); 
+        }
+    });   
+}); 
+
+$('#cbprovincia').on('change', function(){
+    var prefijo=$('#cbprovincia').val().substr(0,4);
+    console.log(prefijo);
+    $.ajax({            
+        type: 'POST',
+        url: '../controller/CAuxiliar.php',
+        data: {"op":"listarDistritos","prefijo":prefijo},     
+        success: function(resultado){
+            if(resultado=="vacio"){ }
+            else{
+                var lst=JSON.parse(resultado);     
+                var $cb=$('#cbdistrito').html('');
+                $cb.append(`<option value="" disabled selected>DISTRITO</option>`);
+                for (var i = 0; i < lst.length; i++) {                    
+                   $cb.append(`<option value=${lst[i]["idlugar"]}>${lst[i]["nombre"]}</option>`);
+                }                 
+            }
+            $('select').formSelect(); 
+        }
+    });    
+}); 
+
+
 
 $('#btnregistrar').click(function(){     
     var nombre=$('#txtnombre').val().toUpperCase();    
-    var ubigeo=$('#txtubigeo').val();
-    var datos={"nombre":nombre,"ubigeo":ubigeo};    
+    var idlugar=$('#cbdistrito').val();
+    var datos={"nombre":nombre,"idlugar":idlugar};    
     $.ajax({        
         type: 'POST',
         url: '../controller/CProyecto.php',
@@ -13,8 +81,7 @@ $('#btnregistrar').click(function(){
                 $('#form-proyecto input').val("");                    
             }else{
                 alert("No se pudo registrar: "+resultado);
-            }
-            
+            }            
         }
     })
    

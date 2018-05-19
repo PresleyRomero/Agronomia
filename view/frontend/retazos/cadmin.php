@@ -1,6 +1,6 @@
 <!--/////////////////////////////////////CABECERA PARA USUARIO TIPO ADMIN ////////////////////////////////////////////////-->
 
-<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+<!--nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -11,9 +11,9 @@
         <a class="navbar-brand" href="home.jsp">OFIHOGAR PLAZA | ${sucursal.getCiudad()}</a>
     </div>
     <!-- /.navbar-header -->
-    <ul class="nav navbar-top-links navbar-right">
+    <!--ul class="nav navbar-top-links navbar-right">
         <!-- /.Alertas -->
-        <li class="dropdown">
+        <!--li class="dropdown">
             <a id="notificacion-letra" class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
@@ -22,7 +22,7 @@
         </li>
         <!-- /.Fin-Alertas -->
         <!-- /.Alertas -->
-        <li class="dropdown">
+        <!--li class="dropdown">
             <a id="notificacion-credito" class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
@@ -31,7 +31,7 @@
             </ul>
         </li>
         <!-- /.Usuario -->
-        <li class="dropdown">
+        <!--li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 ${operador.getNombres()} <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
@@ -44,10 +44,10 @@
             </ul>
         </li>
         <!-- /.Fin-Usuario -->
-    </ul>
+    <!--/ul>
     <!-- /.navbar-top-links -->
 
-    <div class="navbar-default sidebar" role="navigation">
+    <!--div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
                 <li class="separador"></li>
@@ -82,7 +82,7 @@
 
 
 <!--modal configuración - cambio contraseña-->
-<div id="modal-configuracion" class="modal fade" role="dialog">
+<!--div id="modal-configuracion" class="modal fade" role="dialog">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -126,3 +126,64 @@
     </div>
 </div>     
             
+
+--> 
+
+<!---------------------------------------------------------------------------------------------------------------->
+
+<header id="header" class="">
+    <div class="navbar-fixed">
+      <nav class="navegation light-green accent-5  "  style="padding: 0 2em">
+        <div class="nav-wrapper">
+         <!--  <div class="logo">
+            <a href="#" class="brand-logo">AGRO-DATOS</a>
+          </div> -->
+
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li ><a href="login.php" class="">Login</a> </li>              
+            <li class="alerta">
+              <a href="#" class="link" ><i class="material-icons" >notifications_none</i><span class="new badge">4</span></a> 
+            </li>
+            <li>
+              <a class='dropdown-trigger  ' href='#!' data-target='dropdown1' >
+                <span class="avatar-status ">
+                  <img src="frontend/img/perfil.jpg" alt="perfil">
+                </span>
+              </a>
+              <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="#!"><i class="material-icons">face</i>Profile</a></li>
+                <li><a href="#!"><i class="material-icons">settings</i>Setting</a></li>
+                <li><a href="#!"><i class="material-icons">help</i>Help</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="#!"><i class="material-icons">lock</i>Lock</a></li>
+                <li><a href="#!"><i class="material-icons">keyboard_tab</i>Lagout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
+
+    </div>
+
+    <ul id="slide-out" class=" nav-movile sidenav sidenav-fixed  grey lighten-5">
+      <li>
+        <div class="user-view">
+          <div class="background ">
+            <img class="responsive-img" src="frontend/img/logo.png">
+          </div>
+          <a href="#user"><img class="circle" src="frontend/img/risameme.jpg"></a>
+          <a href="#name"><span class="white-text name">Angie Clariza</span></a>
+          <a href="#email"><span class="white-text email">correa.unprg@gmail.com</span></a>
+        </div>
+      </li>
+      <li><a href="#!"  id="proyectos" class="proyectos"><i class="material-icons">folder_special</i>Proyectos</a></li>
+      <li><a href="#!"  id="integrantes"><i class="material-icons">supervisor_account</i>Integrantes</a></li>
+    </ul>
+    <div class="grey lighten-4"><a href="#" data-target="slide-out" class="sidenav-trigger "><i class="material-icons">menu</i></a></div>
+
+    
+</header>
+
+
+

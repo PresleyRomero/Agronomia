@@ -5,43 +5,77 @@
 		<meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" type="text/css" href="frontend/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="frontend/css/style.css">
         <!-- <link rel="stylesheet" type="text/css" href="frontend/css/jquery.dataTables.min.css"> -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	<body>
 		
-		<div class="navbar-fixed">
-	            <nav>
-                <div class="nav-wrapper green lighten-1">
-                    <a href="#" class="brand-logo">AGRO-DATOS</a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="login.php">Login</a></li>
-                        <li><a href="">Nosotros</a></li>
-                        <li><a href="">Contacto</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+        <?php include ("frontend/retazos/cadmin.php"); ?>
 
-        <div class="row">
+        <!--div class="row">
             <div class="col s12 m4 l3">
-                
-            </div>
-            <div class="col s12 m8 l9">
-                <!-- <div class="container"> -->
-                    <h4>LISTA DE PROYECTOS</h4>        
-                    <ul>
-                    	<li><a href="proyect_space.php?idproy=1">Proyecto 1</a></li>
-                    	<li><a href="proyect_space.php?idproy=1">Proyecto 2</a></li>
-                    	<li>Proyecto 3</li>
-                    	<li>Proyecto 4</li>
-                    	<li>Proyecto 5</li>
-                    </ul>           
 
-                    
-                    <button class="btn modal-trigger" data-target="modal-nuevoproyecto" >NUEVO</button>
-                <!-- </div>                  -->
+                <ul id="slide-out" class=" nav-movile sidenav sidenav-fixed  grey lighten-5">
+                  <li>
+                    <div class="user-view">
+                      <div class="background ">
+                        <img class="responsive-img" src="frontend/img/logo.png">
+                      </div>
+                      <a href="#user"><img class="circle" src="frontend/img/perfil.jpg"></a>
+                      <a href="#name"><span class="white-text name">Angie Clariza</span></a>
+                      <a href="#email"><span class="white-text email">correa.unprg@gmail.com</span></a>
+                    </div>
+                  </li>
+                  <li><a href="#!"  id="proyectos" class="proyectos"><i class="material-icons">folder_special</i>Proyectos</a></li>
+                  <li><a href="#!"  id="integrantes"><i class="material-icons">supervisor_account</i>Integrantes</a></li>
+                </ul>
+                <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+
             </div>
-        </div>
+
+            <div class="col s12 m8 l9 right"> -->
+        <main class="grey lighten-4">
+            <div class="container">            
+                <h4>Lista de Proyectos</h4>        
+                <!-- <ul>
+                	<li><a href="proyect_space.php?idproy=1">Proyecto 1</a></li>
+                	<li><a href="proyect_space.php?idproy=1">Proyecto 2</a></li>
+                	<li>Proyecto 3</li>
+                	<li>Proyecto 4</li>
+                	<li>Proyecto 5</li>
+                </ul>  -->
+                <button class="btn modal-trigger" data-target="modal-nuevoproyecto" >NUEVO</button>
+
+                <div class="row">
+                    <div class="col s12 m6 l4">
+                      <div class="card red darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title">PROYECTO P01-0418</span>
+                          <p class="center">ESTUDIO DEL SUELO CON FINES AGRICOLAS Y FORESTALES</p>
+                        </div>
+                        <div class="card-action">
+                          <a href="proyect_space.php?idproy=1" class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">add</i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col s12 m6 l4">
+                      <div class="card red darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title">PROYECTO P01-0418</span>
+                          <p class="center">ESTUDIO DEL SUELO CON FINES AGRICOLAS Y FORESTALES</p>
+                        </div>
+                        <div class="card-action">
+                          <a href="proyect_space.php?idproy=1" class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">add</i></a>
+                        </div>
+                      </div>
+                    </div>
+                </div>               
+            </div>                 
+          <!--   </div>
+        </div> -->
+        </main>
 
         
 
@@ -56,12 +90,18 @@
                             <label for="txtnombre">NOMBRE(*)</label>
                         </div>            
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input type="text" id="txtubigeo" value="">                            
-                            <label for="txtubigeo">UBIGEO</label>
-                        </div>                        
-                    </div>     
+                    <div class="row">     
+                        <div class="input-field col s4">
+                            <select id="cbregion"> <option value="" disabled selected>REGIÓN</option> </select>                              
+                        </div>
+                        <div class="input-field col s4">
+                            <select id="cbprovincia"> <option value="" disabled selected>PROVINCIA</option> </select>                               
+                        </div>     
+                        <div class="input-field col s4">
+                            <select id="cbdistrito"> <option value="" disabled selected>DISTRITO</option> </select>                               
+                        </div>                 
+                    </div>                   
+                   
                     <div class="row">
                         <div class="col s4 ">
                             <button type="button" id="btnregistrar">REGISTRAR</button>      
@@ -84,6 +124,7 @@
             $(document).ready(function(){
                 $('select').formSelect();      
                 $('.modal').modal();    
+                $('.sidenav').sidenav();
             });
         </script>
 

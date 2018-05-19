@@ -21,7 +21,7 @@
     
         <h1>INTRODUCE TUS DATOS</h1>
 
-            <form class="formlogin" action="../controller/CLogin.php" method="post">
+            <form action="../controller/CLogin.php" method="post">
                 <table>
                     <tr>
                         <td>USUARIO:</td>

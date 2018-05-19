@@ -5,22 +5,17 @@
 		<meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" type="text/css" href="frontend/css/materialize.min.css">
+        frontend/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="frontend/css/style.css">
         <!-- <link rel="stylesheet" type="text/css" href="frontend/css/jquery.dataTables.min.css"> -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	<body>
+
+      <?php include ("frontend/retazos/cadmin.php"); ?>
+
 		
-		<div class="navbar-fixed">
-	            <nav>
-                <div class="nav-wrapper green lighten-1">
-                    <a href="#" class="brand-logo">AGRO-DATOS</a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="login.php">Login</a></li>
-                        <li><a href="">Nosotros</a></li>
-                        <li><a href="">Contacto</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+		
 
         <div class="row">
             <div class="col s12 m4 l3">

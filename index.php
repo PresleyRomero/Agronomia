@@ -1,3 +1,15 @@
+<?php
+    $tipooperador=0;
+    session_start();
+    if (!isset($_SESSION["usersesion"])) {
+        header("location:../index.php");
+    }else{
+        $tipooperador=$_SESSION["usersesion"]["tipo"];
+    }
+
+    echo("Mira aqui: ".$tipooperador);
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +21,6 @@
 </head>
 <body>
 	
-
 	<script  src="view/frontend/js/jquery.min.js"></script>
 	<script  src="view/frontend/js/materialize.min.js"></script>
 	<script> 

@@ -21,7 +21,7 @@ if (isset($_POST['op'])) {
 	    	case 'registrar':	    		
 		    	$datos=$_POST["datos"];	   
 		    	$codigo=$mproyecto->obtenerCodigo();  	    	
-		   		$mproyecto->insertar($codigo,$datos["nombre"],$datos["ubigeo"]);
+		   		$mproyecto->insertar($codigo,$datos["nombre"],$datos["idlugar"]);
 		    	echo "true";		    	
 	    		break;
 

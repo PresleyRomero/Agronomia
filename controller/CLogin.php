@@ -9,7 +9,7 @@
 		header("location:../view/login.php");
 	}else {
 		session_start();
-		$_SESSION["usersesion"]=$resultado["tipo"];		
+		$_SESSION["usersesion"]=$resultado;//["tipo"];		
 		header("location:../index.php");
 	}
 
