@@ -1,3 +1,10 @@
+<?php
+  
+  $idproyecto=$_GET["idproy"];
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,7 +21,7 @@
 
       <?php include ("frontend/retazos/cadmin.php"); ?>
 
-		
+		  <input type="text" id="txtidproy" name="" value="<?php echo $idproyecto ?>" hidden=""> <!--Auxiliar--> 
 		
 
         <div class="row">
@@ -35,7 +42,7 @@
                   		</ul>
                   	</div>
                   	<div class="row">
-            			<button class="btn modal-trigger" data-target="modal-integrantes" >REGISTRAR PARTICIPANTES</button>  
+            			<button class="btn modal-trigger" data-target="modal-integrantes" >REGISTRAR PARTICIPANTES</button>     
             		</div>
                 <!-- </div>                  -->
             </div>
@@ -48,7 +55,7 @@
                 <h4>AGREGAR PARTICIPANTES</h4>
                 <!-- <form id="form-participantes" action="#" >                     -->
                    	<div class="row">
-                   		<input type="text" id="txtidproyecto" name="" >
+                   		<input type="text" id="txtidproyecto" name="" value="<?php echo $idproyecto ?>">
                    		<table id="tblintegrantes" class="striped">                   		
                    			<tbody id="tbody-integrantes">
                    				<!--tr>
@@ -137,7 +144,7 @@
         <script  src="frontend/js/jquery.min.js"></script>
         <!-- <script  src="frontend/js/jquery.dataTables.min.js"></script> -->
         <script  src="frontend/js/materialize.min.js"></script>        
-        <script src="frontend/ajax/proyectox.js"></script>        
+        <script src="frontend/ajax/proyectox-space.js"></script>        
         <script> 
             $(document).ready(function(){
                 $('select').formSelect();      

@@ -48,8 +48,8 @@
                 </ul>  -->
                 <button class="btn modal-trigger" data-target="modal-nuevoproyecto" >NUEVO</button>
 
-                <div class="row">
-                    <div class="col s12 m6 l4">
+                <div class="" id="div-proyectos"> 
+                   <!--  <div class="col s12 m6 l4">
                       <div class="card red darken-1">
                         <div class="card-content white-text">
                           <span class="card-title">PROYECTO P01-0418</span>
@@ -70,7 +70,7 @@
                           <a href="proyect_space.php?idproy=1" class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">add</i></a>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                 </div>               
             </div>                 
           <!--   </div>

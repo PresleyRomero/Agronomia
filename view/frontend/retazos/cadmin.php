@@ -177,11 +177,10 @@
           <a href="#email"><span class="white-text email">correa.unprg@gmail.com</span></a>
         </div>
       </li>
-      <li><a href="#!"  id="proyectos" class="proyectos"><i class="material-icons">folder_special</i>Proyectos</a></li>
-      <li><a href="#!"  id="integrantes"><i class="material-icons">supervisor_account</i>Integrantes</a></li>
+      <li><a href="proyect_view.php"  id="proyectos" class="proyectos"><i class="material-icons">folder_special</i>Proyectos</a></li>
+      <li><a href="member_view.php"  id="integrantes"><i class="material-icons">supervisor_account</i>Integrantes</a></li>
     </ul>
     <div class="grey lighten-4"><a href="#" data-target="slide-out" class="sidenav-trigger "><i class="material-icons">menu</i></a></div>
-
     
 </header>
 

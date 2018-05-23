@@ -68,7 +68,7 @@
 		public function listar(){
 			//$lstproyectos=null;
 			try{
-				$sql="select idproyecto,codigo,nombre,idlugar,fecharegitro FROM proyecto";
+				$sql="select idproyecto,codigo,nombre,idlugar,fecharegitro from proyecto order by idproyecto desc";
 				$rs=$this->conn->query($sql);
 				$lstproyectos=$rs->fetchAll(PDO::FETCH_ASSOC);
 				return $lstproyectos;				
